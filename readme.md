@@ -22,66 +22,57 @@ Para ejecutar este proyecto, necesitas tener instalado lo siguiente en tu sistem
 
 ## ⚙️ Instalación y Configuración
 
-**1. Clonar el repositorio:**
-
-```bash
+Clonar el repositorio:
 git clone https://github.com/Papit4/challenge-automation-ECP.git
 cd challenge-automation-ECP
 
-2. Instalar dependencias:
-
+Instalar dependencias:
 npm install
 
-3. Instalar navegadores de Playwright:
-
+Instalar navegadores de Playwright:
 npx playwright install chromium
 
-4. Configuración de Variables de Entorno (¡IMPORTANTE!):
-Por estrictas políticas de seguridad (simulando un entorno real Fintech), las claves secretas no se exponen en este repositorio ni en la documentación.
-
+Configuración de Variables de Entorno (¡IMPORTANTE!):
+Por estrictas políticas de seguridad, las claves secretas no se exponen en este repositorio.
 Debes crear dos archivos en la raíz del proyecto basándote en el archivo .env.example:
 
-Crea un archivo llamado .env.qa y asigna a la variable SECRET_KEY el valor correspondiente al ambiente QA que fue provisto en el documento PDF del challenge.
-
-Crea un archivo llamado .env.cert y asigna a la variable SECRET_KEY el valor correspondiente al ambiente CERT provisto en el documento PDF del challenge.
-
-La estructura interna de ambos archivos debe verse exactamente así:
-
+Crea un archivo llamado .env.qa y ponle dentro esta línea:
 SECRET_KEY=ingresa_la_clave_aqui
 
-▶️ Ejecución de las Pruebas
-El framework soporta la inyección dinámica del entorno mediante la variable TEST_ENV. Por defecto, ejecutará el entorno qa.
+Crea un archivo llamado .env.cert y ponle dentro esta línea:
+SECRET_KEY=ingresa_la_clave_aqui
+
+--- EJECUCIÓN DE LAS PRUEBAS ---
+El framework soporta la inyección dinámica del entorno. Por defecto, ejecutará el ambiente "qa".
 
 Para usuarios de Windows (PowerShell):
-Ejecutar todas las pruebas en el ambiente QA o CERT:
 
+Ejecutar pruebas en ambiente QA:
 $env:TEST_ENV="qa"; npx playwright test
+
+Ejecutar pruebas en ambiente CERT:
 $env:TEST_ENV="cert"; npx playwright test
 
 Para usuarios de Mac/Linux (o Git Bash):
-Ejecutar todas las pruebas en el ambiente QA o CERT:
 
+Ejecutar pruebas en ambiente QA:
 TEST_ENV=qa npx playwright test
+
+Ejecutar pruebas en ambiente CERT:
 TEST_ENV=cert npx playwright test
 
-🎯 Ejecución por Etiquetas (Tags)
-Si deseas ejecutar suites de pruebas específicas, puedes hacer uso del parámetro --grep:
+--- EJECUCIÓN POR ETIQUETAS (TAGS) ---
 
 Solo Pruebas de API (PokeAPI y JSONPlaceholder):
-
 npx playwright test --grep "@api"
 
 Solo Prueba Web (Wikipedia):
-
 npx playwright test --grep "@web"
 
-📊 Reportes y Evidencias
-Playwright está configurado para generar un reporte HTML detallado al finalizar la ejecución, el cual incluye los pasos detallados de cada prueba (test.step), capturas de pantalla y videos únicamente en caso de que una prueba falle.
-
-Para abrir y visualizar el reporte interactivo, ejecuta el siguiente comando:
+--- REPORTES Y EVIDENCIAS ---
+Playwright generará un reporte HTML detallado al finalizar, con pasos, capturas y videos solo en caso de fallos. Para abrir el reporte, ejecuta el siguiente comando:
 
 npx playwright show-report
 
-📁 Gestión de Archivos Descargados
-Durante la prueba Web (Wikipedia), las imágenes de los Pokémon son descargadas interactuando dinámicamente con el DOM. El framework validará y creará automáticamente la carpeta images/ en la raíz del proyecto. Si la prueba se ejecuta múltiples veces, las imágenes se sobrescribirán de forma automática cumpliendo con los requisitos de la prueba.
-
+Gestión de Archivos Descargados:
+Durante la prueba Web (Wikipedia), las imágenes de los Pokémon se descargan dinámicamente. El framework validará y creará automáticamente la carpeta "images/" en la raíz del proyecto, sobrescribiendo los archivos en ejecuciones futuras para cumplir con los requisitos.
