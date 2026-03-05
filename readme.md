@@ -24,18 +24,15 @@ Para ejecutar este proyecto, necesitas tener instalado lo siguiente en tu sistem
 
 **1. Clonar el repositorio:**
 
-git clone https://github.com/Papit4/challenge-automation-ECP
-
+```bash
+git clone https://github.com/Papit4/challenge-automation-ECP.git
+cd challenge-automation-ECP
 
 **2. Instalar dependencias:**
-\`\`\`bash
 npm install
-\`\`\`
 
 **3. Instalar navegadores de Playwright:**
-\`\`\`bash
 npx playwright install chromium
-\`\`\`
 
 **4. Configuración de Variables de Entorno (¡IMPORTANTE!):**
 Por estrictas políticas de seguridad (simulando un entorno real Fintech), las claves secretas no se exponen en este repositorio ni en la documentación.
