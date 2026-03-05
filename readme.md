@@ -23,11 +23,9 @@ Para ejecutar este proyecto, necesitas tener instalado lo siguiente en tu sistem
 ## ⚙️ Instalación y Configuración
 
 **1. Clonar el repositorio:**
-\`\`\`bash
-git clone https://github.com/brunojbarros/challenge-automation-[tus-iniciales].git
-cd challenge-automation-[tus-iniciales]
-\`\`\`
-*(Nota: Reemplaza `[tus-iniciales]` por las iniciales correspondientes).*
+
+git clone https://github.com/Papit4/challenge-automation-ECP
+
 
 **2. Instalar dependencias:**
 \`\`\`bash
